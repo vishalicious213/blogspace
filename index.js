@@ -13,3 +13,13 @@ fetch("https://apis.scrimba.com/jsonplaceholder/posts")
         })
         document.getElementById("blog-posts").innerHTML = postsHtml
     })
+
+document.getElementById("new-post").addEventListener("submit", function(e) {
+    e.preventDefault()
+    const postTitle = document.getElementById("post-title").value
+    const postBody = document.getElementById("post-body").value
+    const newPost = {
+        title: postTitle,
+        body: postBody
+    }
+})
