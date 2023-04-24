@@ -22,4 +22,15 @@ main {
 
 form {
     margin: 6.5rem 1rem 0;
+    display: grid;
+}
+
+#post-title, #post-body {
+    margin-bottom: 1rem;
+}
+
+button {
+    padding: .5rem;
+    text-transform: uppercase;
+    cursor: pointer;
 }
