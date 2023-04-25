@@ -14,6 +14,7 @@ fetch("https://apis.scrimba.com/jsonplaceholder/posts")
         document.getElementById("blog-posts").innerHTML = postsHtml
     })
 
+// listen for form submissions
 document.getElementById("new-post").addEventListener("submit", function(e) {
     e.preventDefault()
     const postTitle = document.getElementById("post-title").value
@@ -23,6 +24,7 @@ document.getElementById("new-post").addEventListener("submit", function(e) {
         body: postBody
     }
 
+    // send form submission to API
     fetch("https://apis.scrimba.com/jsonplaceholder/posts", {
         method: "POST",
         body: JSON.stringify(newPost),
@@ -31,5 +33,13 @@ document.getElementById("new-post").addEventListener("submit", function(e) {
         }
     })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(post => {
+            // render new post & then render existing posts after it
+            document.getElementById("blog-posts").innerHTML = `
+                <h3>${post.title}</h3>
+                <p>${post.body}</p>
+                <hr />
+                ${document.getElementById("blog-posts").innerHTML}
+            `
+        })
 })
