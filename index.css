@@ -20,13 +20,17 @@ main {
     margin: 3rem 1rem;
 }
 
+#form-container {
+    background-color: #F0F2F0;
+}
+
 form {
-    margin: 5rem 0 0;
+    margin: 5rem auto 0;
     padding: 1rem 1rem 2rem;
     box-sizing: border-box;
     width: 100%;
+    max-width: 600px;
     display: grid;
-    background-color: #F0F2F0;
 }
 
 #post-title, #post-body {
