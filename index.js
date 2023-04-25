@@ -5,16 +5,10 @@ fetch("https://apis.scrimba.com/jsonplaceholder/posts")
     .then(response => response.json())
     .then(posts => {
         postsArray = posts.slice(0, 5)
-        let postsHtml = ""
-        postsArray.forEach(function(post) {
-            postsHtml += `
-                <h3>${post.title}</h3>
-                <p>${post.body}</p>
-                <hr />
-            `
-        })
-        document.getElementById("blog-posts").innerHTML = postsHtml
+        renderPosts(postsArray)
     })
+
+// ⬇️ EVENT LISTENERS ⬇️
 
 // listen for form submissions
 document.getElementById("new-post").addEventListener("submit", function(e) {
@@ -36,12 +30,24 @@ document.getElementById("new-post").addEventListener("submit", function(e) {
     })
         .then(res => res.json())
         .then(post => {
-            // render new post & then render existing posts after it
-            document.getElementById("blog-posts").innerHTML = `
-                <h3>${post.title}</h3>
-                <p>${post.body}</p>
-                <hr />
-                ${document.getElementById("blog-posts").innerHTML}
-            `
+            postsArray.unshift(post)
+            renderPosts(postsArray)
         })
 })
+
+// ⬇️ RENDER THE APP ⬇️
+
+// render posts from postsArray
+function renderPosts(postsArray) {
+    let postsHtml = ""
+
+    postsArray.forEach(function(post) {
+        postsHtml += `
+            <h3>${post.title}</h3>
+            <p>${post.body}</p>
+            <hr />
+        `
+    })
+
+    document.getElementById("blog-posts").innerHTML = postsHtml
+}
