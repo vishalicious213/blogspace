@@ -1,4 +1,5 @@
 let postsArray = []
+const form = document.getElementById("new-post")
 
 // get first 5 posts and render them
 fetch("https://apis.scrimba.com/jsonplaceholder/posts")
@@ -11,7 +12,7 @@ fetch("https://apis.scrimba.com/jsonplaceholder/posts")
 // ⬇️ EVENT LISTENERS ⬇️
 
 // listen for form submissions
-document.getElementById("new-post").addEventListener("submit", function(e) {
+form.addEventListener("submit", function(e) {
     e.preventDefault()
     submitPost()
 })
@@ -20,8 +21,8 @@ document.getElementById("new-post").addEventListener("submit", function(e) {
 
 // submit post from form to API
 function submitPost() {
-    const postTitle = document.getElementById("post-title").value
-    const postBody = document.getElementById("post-body").value
+    let postTitle = document.getElementById("post-title").value
+    let postBody = document.getElementById("post-body").value
     const newPost = {
         title: postTitle,
         body: postBody
@@ -40,6 +41,9 @@ function submitPost() {
             postsArray.unshift(post)
             renderPosts(postsArray)
         })
+
+    // clear out the form fields
+    form.reset()
 }
 
 // ⬇️ RENDER THE APP ⬇️
