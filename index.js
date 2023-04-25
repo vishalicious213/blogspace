@@ -13,6 +13,13 @@ fetch("https://apis.scrimba.com/jsonplaceholder/posts")
 // listen for form submissions
 document.getElementById("new-post").addEventListener("submit", function(e) {
     e.preventDefault()
+    submitPost()
+})
+
+// ⬇️ EVENT HANDLERS ⬇️
+
+// submit post from form to API
+function submitPost() {
     const postTitle = document.getElementById("post-title").value
     const postBody = document.getElementById("post-body").value
     const newPost = {
@@ -33,7 +40,7 @@ document.getElementById("new-post").addEventListener("submit", function(e) {
             postsArray.unshift(post)
             renderPosts(postsArray)
         })
-})
+}
 
 // ⬇️ RENDER THE APP ⬇️
 
