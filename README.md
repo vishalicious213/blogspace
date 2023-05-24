@@ -5,3 +5,5 @@ BlogSpace is the 2nd project in Module 9 (Working with APIs) of Scrimba's [Front
 The project uses the __jsonplaceholder API__, which returns 100 responses. The API has no built-in way to limit the number of responses, so we use `.slice()` to take the first 5 response objects from the returned array for use in the app.
 
 Deployed at: https://vish213-blogspace.netlify.app/
+
+![](./screenshot.jpg)
