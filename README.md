@@ -7,3 +7,30 @@ The project uses the __jsonplaceholder API__, which returns 100 responses. The A
 Deployed at: https://vish213-blogspace.netlify.app/
 
 ![](./screenshot.jpg)
+
+## JavaScript concepts
+
+- variables
+- arrays
+    - .slice()
+    - .unshift()
+    - .forEach()
+- document
+    - .getElementById()
+- fetch
+    - .then()
+    - .json()
+    - method
+    - body
+    - headers
+- functions
+    - arrow functions
+    - event listeners
+    - event handlers
+- events
+    - preventDefault()
+- element.value
+- element.innerHTML
+- form.reset()
+- objects
+- string template literals
